@@ -21,13 +21,13 @@ if x.lower()=='y':
             print("Enter the word")
             #WORD2=WORD THAT PLAYER 2 HAVE TO GUESS
             word2=pwinput.pwinput("Player 1: ")
-            while wordcheck.check(word2)==False:
+            while wordcheck.check(word2)==False or len(word2)==1:
                 print("Please check you have typed you word correctly")
                 word2=pwinput.pwinput("Player 1: ")
             #WORD1=WORD THAT PLAYER 1 HAVE TO GUESS
             word1=pwinput.pwinput("Player 2: ")
-            while wordcheck.check(word1)==False:
-                print("Please check you have typed you word correctly")
+            while wordcheck.check(word1)==False or len(word1)==1:
+                print("Please check you have typed your word correctly")
                 word1=pwinput.pwinput("Player 2: ")
             #PLAY2 = TEMP OF WORD 2
             play2=list(word2)
@@ -42,7 +42,7 @@ if x.lower()=='y':
                 ans2+=str(i)    
             tag1=0
             tag2=0
-            while attempt1 !=0  and attempt2 != 0:
+            while attempt1 >=0  and attempt2 >= 0:
                 if attempt1 == 4 and attempt2 == 4:
                     print ("Player 1 Turn:\nAttempt(s) = ",attempt1)
                     print("The Word: ",end='')
@@ -92,9 +92,17 @@ if x.lower()=='y':
                     if attempt1>attempt2:
                         print("Player 1 is the winner")
                         print("The word are",ans1.upper(),"and",ans2.upper())
+                        print("------------------------------------")
+                        print("Thank you for playing!")
+                        print("------------------------------------")
+                        exit(3)
                     elif attempt1==attempt2:
                         print("Draw")
                         print("The word are",ans1.upper(),"and",ans2.upper())
+                        print("------------------------------------")
+                        print("Thank you for playing!")
+                        print("------------------------------------")
+                        exit(3)
                     else:
                         print("Player 2 is the winner")
                         print("The word are",ans1.upper(),"and",ans2.upper())
